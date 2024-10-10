@@ -27,9 +27,16 @@ main img {
   height: auto;
 }
 
+/* General image styles */
+img {
+  border: 1px solid steelblue;
+  padding: 2px;
+  box-shadow: 0 0 30px gray;
+}
+
 /* Padding for paragraphs */
 p {
-  padding: 0;
+  padding: 10px; /* Combined padding for paragraphs */
 }
 
 /* Styles for the footer */
@@ -56,88 +63,9 @@ h1 {
   color: steelblue;
 }
 
-/* General image styles */
-img {
-  width: 150px;
-  height: auto;
-  border: 1px solid steelblue;
-  padding: 2px;
-  box-shadow: 0 0 30px gray;
-}
-
-/* Paragraph styles */
+/* Remove duplicate paragraph styles */
 p {
   padding: 10px;
 }
 
-/* Limit the width of main */
-main {
-  max-width: 840px;
-}
-
-/* Styles for the aside element */
-aside {
-  width: 20rem;
-  margin: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  background-color: #eee;
-  color: #333;
-  text-align: center;
-}
-
-/* Style for images inside aside */
-aside img {
-  width: 200px;
-  height: auto;
-}
-
-/* Adjust the style of images in main */
-main img {
-  width: 150px;
-  height: auto;
-}
-
-/* Padding for paragraphs */
-p {
-  padding: 0;
-}
-
-/* Styles for the footer */
-footer {
-  margin-top: 15px;
-  border-top: 1px solid #000;
-  text-align: center;
-}
-
-/* Navigation styles */
-nav {
-  background-color: steelblue;
-  padding: 10px;
-}
-
-nav a {
-  color: white;
-  display: block;
-  padding: 20px;
-}
-
-/* Heading styles */
-h1 {
-  color: steelblue;
-}
-
-/* General image styles */
-img {
-  width: 150px;
-  height: auto;
-  border: 1px solid steelblue;
-  padding: 2px;
-  box-shadow: 0 0 30px gray;
-}
-
-/* Paragraph styles */
-p {
-  padding: 10px;
-}
 >>>>>>> 59269efce705dd2bc60625a2f3fa221f1b0ac574
