@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us - White Water Rafting</title>
+    <meta name="description" content="Get in touch with us for inquiries about our rafting services and adventures.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="images/rafting-logo.png" alt="Rafting Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="trips.html">Trips</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <h1>Contact Us</h1>
+
+        <!-- Company Information -->
+        <section class="company-info">
+            <h2>Our Office</h2>
+            <p>Address: 123 River Road, Adventure Town, USA</p>
+            <p>Phone: +1 (555) 123-4567</p>
+            <p>Email: info@wwrafting.com</p>
+            <!-- Google Map Embed -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093744!2d144.9630579153164!3d-37.81362797975144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43bf286bab%3A0x5045675218ce7e33!2zTWFyYmxlIE1lbGJvdXJuZSwgQXVzdHJhbGlh!5e0!3m2!1sen!2sus!4v1614123326555!5m2!1sen!2sus" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <section class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-container"> 
+                <figure>
+                    <img src="images/employee1.jpg" alt="Employee 1" class="employee-image">
+                    <figcaption>John Doe, Adventure Guide</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/employee2.jpg" alt="Employee 2" class="employee-image">
+                    <figcaption>Jane Smith, Customer Relations</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/employee3.jpg" alt="Employee 3" class="employee-image">
+                    <figcaption>Sam Lee, Safety Officer</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <!-- Contact Form -->
+        <section class="contact-form">
+            <h2>Get in Touch</h2>
+            <form action="submit_form.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <p>Purpose of Inquiry:</p>
+                <label>
+                    <input type="radio" name="inquiry_type" value="general" required>
+                    General Inquiry
+                </label>
+                <label>
+                    <input type="radio" name="inquiry_type" value="booking">
+                    Booking Question
+                </label>
+                <label>
+                    <input type="radio" name="inquiry_type" value="suggestion">
+                    Website Suggestion
+                </label>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <label>
+                    <input type="checkbox" name="subscribe">
+                    Please subscribe me to the monthly newsletter
+                </label>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 White Water Rafting | Designed by Maria Sarante</p>
+        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        <a href="contact-wireframe.png">Contact Page Wireframe</a> <!-- Link to the wireframe image -->
+    </footer>
+
+</body>
+</html>
