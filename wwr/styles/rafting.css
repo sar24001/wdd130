@@ -1,4 +1,4 @@
-/* Root variables for color scheme */
+/*Root variables for color scheme */
 :root {
     --primary-color: #005f73;
     --secondary-color: #0a9396;
@@ -54,11 +54,10 @@ nav a:hover {
     color: white;
 }
 
-.wwr-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    opacity: 0.8;
+.hero-image {
+    width: 100%; /* Full width of the container */
+    max-height: 400px; /* Reduce the maximum height */
+    object-fit: cover; /* Maintain aspect ratio */
 }
 
 .hero h1 {
@@ -70,26 +69,6 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 5px;
-}
-
-.hero article {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, 10%);
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 500px;
-    text-align: left;
-}
-
-.happy-customer {
-    float: right;
-    margin-left: 15px;
-    width: 150px;
-    border-radius: 50%;
 }
 
 /* History Section */
@@ -117,22 +96,11 @@ nav a:hover {
     margin-top: 20px;
 }
 
-.adventure-gallery figure {
-    flex: 1 1 calc(20% - 10px); /* Flexible basis for responsiveness */
-    text-align: center;
-    max-width: 180px; /* Control size */
-}
-
 .adventure-gallery img {
-    width: 100%; /* Full width for images */
+    width: 80%; /* Full width of the grid item */
+    max-width: 150px; /* Reduce maximum width for better appearance */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Rounded corners */
-}
-
-.adventure-gallery figcaption {
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #333;
 }
 
 /* Footer */
@@ -160,31 +128,100 @@ footer a:hover img {
     opacity: 0.7;
 }
 
-.team-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    margin: 20px 0; 
-}
-
-figure {
-    margin: 0 20px; 
+/* Trips Page Specific Styles */
+.trip-descriptions {
+    padding: 50px;
+    background-color: var(--secondary-color);
     text-align: center;
 }
 
-.employee-image {
-    width: 100px; 
-    height: auto;
+.trip {
+    margin: 20px;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
-} 
-
-.team h2 {
-    text-align: center; 
-    margin-bottom: 20px; 
+    padding: 20px;
+    background-color: white;
+    color: #333;
 }
-.company-info iframe {
-    width: 100%; 
-    height: 450px;  
-    border: none; 
+
+.trip-image {
+    width: 80%; /* Set to 80% of the container width */
+    max-width: 150px; /* Limit the maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    margin: 0 auto; /* Center the image */
+}
+
+/* Table and CTA styles remain the same */
+.trip-table {
+    padding: 20px;
+    background-color: var(--accent-color);
+    text-align: center;
+}
+
+.trip-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.trip-table th, .trip-table td {
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+}
+
+/* CTA Section */
+.cta {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end; 
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    height: 200px; 
+    align-items: center; 
+}
+
+.cta .btn {
+    width: 150px; 
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: auto; 
+}
+
+.cta .btn:hover {
+    background-color: var(--accent-color);
+}
+
+.cta .btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Adjustments for Grid Layout */
+.grid-container {
+    display: flex;
+    justify-content: center; /* Center items in the flex container */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 15px; /* Space between grid items */
+}
+
+.grid-item {
+    text-align: center; /* Center text in grid items */
+    max-width: 220px; /* Limit maximum width for grid items */
+}
+
+/* Specific Styles for Offer Images */
+.grid-item img[src="images/offer1.jpg"] {
+    width: 100%; /* Full width of the grid item */
+    max-width: 150px; /* Reduce the maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.grid-item img[src="images/offer2.jpg"] {
+    width: 100%; /* Full width of the grid item */
+    max-width: 150px; /* Limit maximum width */
+    height: auto; /* Maintain aspect ratio */
 }
