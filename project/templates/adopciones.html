@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patitas Felices - Adopción</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    {% block extra_css %}
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/adopciones.css')}}">
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adopción de Mascotas</h1>
+        </header>
+        <p class="intro">
+            En Patitas Felices, creemos que cada mascota merece un hogar lleno de amor.
+            Aquí encontrarás a tu nuevo mejor amigo. Adopta, no compres, y cambia una vida para siempre.
+        </p>
+        <div class="pets-grid">
+            <div class="pet-card">
+                <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Luna" class="pet-image">
+                <div class="pet-info">
+                    <h2 class="pet-name">Luna</h2>
+                    <div class="pet-details">
+                        <p><strong>Especie:</strong> Gato</p>
+                        <p><strong>Edad:</strong> 2 años</p>
+                        <p><strong>Sexo:</strong> Hembra</p>
+                        <p>Luna es una gata cariñosa y juguetona. Le encanta acurrucarse y es perfecta para un hogar tranquilo.</p>
+                    </div>
+                    <a href="#" class="adopt-button">Adoptar a Luna</a>
+                </div>
+            </div>
+            <div class="pet-card">
+                <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Max" class="pet-image">
+                <div class="pet-info">
+                    <h2 class="pet-name">Max</h2>
+                    <div class="pet-details">
+                        <p><strong>Especie:</strong> Perro</p>
+                        <p><strong>Edad:</strong> 3 años</p>
+                        <p><strong>Sexo:</strong> Macho</p>
+                        <p>Max es un perro energético y leal. Ama los paseos largos y es excelente con los niños.</p>
+                    </div>
+                    <a href="#" class="adopt-button">Adoptar a Max</a>
+                </div>
+            </div>
+            <div class="pet-card">
+                <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Nala" class="pet-image">
+                <div class="pet-info">
+                    <h2 class="pet-name">Nala</h2>
+                    <div class="pet-details">
+                        <p><strong>Especie:</strong> Perro</p>
+                        <p><strong>Edad:</strong> 5 años</p>
+                        <p><strong>Sexo:</strong> Hembra</p>
+                        <p>Nala es una perra dulce y tranquila. Es perfecta para apartamentos y familias con un estilo de vida relajado.</p>
+                    </div>
+                    <a href="#" class="adopt-button">Adoptar a Nala</a>
+                </div>
+            </div>
+            <div class="pet-card">
+                <img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Oliver" class="pet-image">
+                <div class="pet-info">
+                    <h2 class="pet-name">Oliver</h2>
+                    <div class="pet-details">
+                        <p><strong>Especie:</strong> Gato</p>
+                        <p><strong>Edad:</strong> 1 año</p>
+                        <p><strong>Sexo:</strong> Macho</p>
+                        <p>Oliver es un gatito curioso y lleno de energía. Le encanta jugar y explorar su entorno.</p>
+                    </div>
+                    <a href="#" class="adopt-button">Adoptar a Oliver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

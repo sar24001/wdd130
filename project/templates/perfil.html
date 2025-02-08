@@ -1,0 +1,84 @@
+{% extends "main.html" %}
+
+{% block title %}Patitas felices - Perfil de mascota {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header>
+        {% if info_mascota %}
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Foto de {{ info_mascota[0].nombre }}" class="pet-image">
+        <h1>Perfil de {{ info_mascota[0].nombre }}</h1>
+        {% else %}
+        <h1>No hay mascotas registradas</h1>
+        {% endif %}
+    </header>
+
+    <div class="profile-content">
+        <!-- Información General -->
+        <section class="info-section">
+            <h2>Información General</h2>
+            {% if info_mascota %}
+            {% for mascota in info_mascota %}
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Especie</label>
+                    <div>{{ mascota.especie_nombre }}</div>
+                </div>
+                <div class="info-item">
+                    <label>Raza</label>
+                    <div>{{ mascota.razanombre }}</div>
+                </div>
+                <div class="info-item">
+                    <label>Edad</label>
+                    <div>{{ mascota.edad }} años</div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No hay información de mascotas disponible.</p>
+            {% endif %}
+        </section>
+
+        <!-- Información del Dueño -->
+        <section class="info-section">
+            <h2>Información del Dueño</h2>
+            {% for dueno in info_dueno %}
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Nombre</label>
+                    <div>{{ dueno.nombre1 }} {{ dueno.nombre2 }}</div>
+                </div>
+                <div class="info-item">
+                    <label>Teléfono</label>
+                    <div>{{ dueno.telefono }}</div>
+                </div>
+                <div class="info-item">
+                    <label>Email</label>
+                    <div>{{ dueno.email }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+        <!-- Historial Médico -->
+        <section class="info-section">
+            <h2>Historial Médico</h2>
+            {% if historial %}
+            <ul>
+                {% for registro in historial %}
+                <li>{{ registro.descripcion }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No hay historial médico disponible.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+

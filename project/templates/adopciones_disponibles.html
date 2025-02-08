@@ -1,0 +1,32 @@
+{% extends "administrador.html" %}
+
+{% block title %}Adopciones disponibles{% endblock %}
+
+{% block seccion %}Adopciones Disponibles{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especie</th>
+                <th>Raza</th>
+                <th>Edad</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for adopcion in adopciones %}
+            <tr>
+                <td>{{ adopcion.nombre }}</td>
+                <td>{{ adopcion.especie }}</td>
+                <td>{{ adopcion.raza }}</td>
+                <td>{{ adopcion.edad }}</td>
+                <td>{{ adopcion.descripcion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

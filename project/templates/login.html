@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block extra_css %}
+        <link rel="stylesheet" href="{{url_for('static', filename ='css/login.css')}}">
+        {% endblock %}
+        <title>Login y Registro - Veterinaria</title>
+
+    </head>
+
+    <body>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form class="form" action="{{url_for('register')}}" method="post">
+                    <h1>Crear Cuenta</h1>
+                    <div class= "crear">
+
+                    <input type="text" name="primer_nombre" placeholder="Primer nombre" required />
+                    <input type="text" name="segundo_nombre" placeholder="Segundo nombre" required />
+                    <input type="text" name="primer_apellido" placeholder="Primer apellido" required />
+                    <input type="text" name="segundo_apellido" placeholder="Segundo apellido" required />
+                    <input type="text" name="telefono" placeholder="Telefono" required />
+                    <input type="text" name="cedula" placeholder="Cedula" required />
+                    <input type="text" name="username" placeholder="username" required />
+                    <input type="email" name="email" placeholder="Email" required />
+
+                    <input type="hidden" name="rol" value="3"/>
+                    <input type="password" name="password" placeholder="Contraseña" required />
+                    <button type="submit">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form class="form" action= "{{url_for('login')}}" method= "post">
+                    <h1>Iniciar Sesión</h1>
+                    <input type="username" name="username" placeholder="username" required />
+                    <input type="password" name="password" placeholder="Contraseña" required />
+                    <a href="#" style="color: #5a9367; margin: 15px 0;">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>¡Bienvenido de vuelta!</h1>
+                        <p>Para mantenerte conectado con nosotros, por favor inicia sesión con tu información personal</p>
+                        <button class="ghost" id="signIn">Iniciar Sesión</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>¡Hola, amigo!</h1>
+                        <p>Ingresa tus datos personales y comienza tu viaje con nosotros</p>
+                        <button class="ghost" id="signUp">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    {% block extra_js %}
+    <script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+    {% endblock %}
+</html>

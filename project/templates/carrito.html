@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+
+{% block title %}Patitas Felices - Mi Carrito{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/compras.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Mi Carrito</h1>
+    </header>
+    <main>
+        {% if carrito %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in carrito %}
+                <tr>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>${{ item.preciounitario }}</td>
+                    <td>${{ item.total }}</td>
+                    <td>
+                        <form action="{{ url_for('eliminar_producto_carrito', id_carrito=item.id_carrito) }}" method="POST">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <h3>Total: ${{ total }}</h3>
+            <form action="{{ url_for('comprar_carrito') }}" method="POST">
+                <button type="submit" class="btn btn-success">Finalizar Compra</button>
+            </form>
+        </div>
+        {% else %}
+        <p>No tienes productos en el carrito.</p>
+        {% endif %}
+    </main>
+</div>
+{% block extra_js %}
+<script src="{{ url_for('static', filename='scripts/carrito.js') }}"></script>
+{% endblock %}
+{% endblock %}

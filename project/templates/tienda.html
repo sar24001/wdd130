@@ -1,0 +1,78 @@
+{% extends "administrador.html" %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block seccion %}Productos en Tienda{% endblock %}
+
+{% block content %}
+<div class="container ">
+  <div class="row">
+    <div class="col">
+      <form class="form" action="{{url_for('tienda')}}" method="POST" enctype="multipart/form-data">
+        <select class="form-select" aria-label="Default select example" name="tipo">
+          <option selected disabled>Escoge una categoria para tu producto</option>
+          {% for cate in categoria %}
+          <option value="{{cate.id_categoria}}">{{cate.nombre}}</option>
+          {% endfor %}
+        </select>
+        <div class="mb-3">
+          <label for="exampleInputname1" class="form-label">Nombre del producto</label>
+          <input type="text" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputname1" class="form-label">Descripcion</label>
+          <input type="text" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" name="descripcion">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputtext1" class="form-label">Precio</label>
+          <input type="Numeric" class="form-control" name="precio">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputtext1" class="form-label">Stock</label>
+          <input type="Numeric" class="form-control" name="cantidad">
+        </div>
+        <div class="mb-3">
+          <label for="myfile">Sube una imagen de tu producto:</label>
+          <input class="form-control" type="file" id="img_producto" name="img_producto"><br><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Subir</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad Disponible</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.preciounitario }}</td>
+            <td>{{ producto.stock }}</td>
+            <td><img src="/{{ producto.imagen_path }}" style="width: 100%;" alt="" srcset=""></td>
+            <form action="/eliminar_producto" method="post">
+              <input type="text" name="id_producto" value="{{ producto.id_producto }}" style="display: none !important;" id="">
+              <td><button class="btn btn-primary" type="submit">Borrar</button></td>
+            </form>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>
+{% endblock %}

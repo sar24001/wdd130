@@ -1,0 +1,31 @@
+{% extends "administrador.html" %}
+{% block title %}Patitas felices - Solicitud de citas{% endblock %}
+{% block seccion %}Citas en tu agenda{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="table-primary">Dueño</th>
+        <th scope="table-primary">Mascota</th>
+        <th scope="table-primary">Especie</th>
+        <th scope="table-primary">Raza</th>
+        <th scope="table-primary">Veterinario</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in citas %}
+      <tr>
+        <td>{{ item.nombres }} {{ item.apellidos }}</td> <!-- Dueño -->
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.especie_nombre }}</td> <!-- Mascota -->
+        <td>{{ item.razanombre }}</td> <!-- Especie -->
+        <td>{{ item.Veterinario }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

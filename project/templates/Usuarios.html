@@ -1,0 +1,30 @@
+{% extends "administrador.html" %}
+{% block title %}Patitas felices - Control de usuarios{% endblock %}
+{% block seccion %}Control de usuarios{% endblock %}
+{% block content %}
+
+
+<div class="container mt-4">
+  <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">email</th>
+                    <th scope="col">telefono</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for item in Usuarios%}
+                  <tr>
+                    <td>{{ item.username }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.telefono }} </td>
+
+
+
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+
+              {% endblock %}

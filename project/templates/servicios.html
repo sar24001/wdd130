@@ -1,0 +1,51 @@
+{% extends "administrador.html" %}
+
+{% block title %}Servicios{% endblock %}
+{% block seccion %}Servicios Disponibles{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-4">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Servicios</th>
+                <th>Costo</th>
+                <th>Duración</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for servicio in servicios %}
+            <tr>
+                <td>{{ servicio.descripcion }}</td>
+                <td>{{ servicio.costo }}</td>
+                <td>{{ servicio.duracion }}</td>
+                <td>{{ servicio.estado }}</td>
+                {% if session.id_rol == 1 %}
+                <td>
+                    <!-- Enlace para editar -->
+                    <a href="{{ url_for('editar', id_servicio=servicio.id_servicio, descripcion=servicio.descripcion, costo=servicio.costo, duracion=servicio.duracion) }}">
+                        Editar
+                    </a>
+                    <!-- Formulario para cambiar estado -->
+                    <form method="POST" action="{{ url_for('cambiar_estado_servicio', id_servicio=servicio.id_servicio) }}" style="display:inline;">
+                        <input type="text" style="display:none;"  name="estado" value="{{servicio.estado}}">
+                        <button type="submit" class="btn btn-sm {{ 'btn-danger' if servicio.estado == 'activo' else 'btn-success' }}">
+                            {{ 'Desactivar' if servicio.estado == 'activo' else 'Activar' }}
+                        </button>
+                    </form>
+                </td>
+                {% else %}
+                <td>No puedes editar</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+

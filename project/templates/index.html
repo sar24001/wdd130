@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/index.css')}}">
+    {% block extra_css %}
+
+    {% endblock %}
+    <title>Clínica Veterinaria Patitas Felices</title>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">Patitas Felices</a>
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#veterinarios">Veterinarios</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#adopciones">Adopciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Clínica Veterinaria Patitas Felices</h1>
+                <p>Cuidando con amor y profesionalismo a tus mejores amigos desde 2005</p>
+                <a href="/login" class="btn">Agenda una cita</a>
+            </div>
+        </section>
+
+        <section id="sobre-nosotros" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <p>En Clínica Veterinaria Patitas Felices, nos dedicamos a proporcionar el mejor cuidado posible para tus mascotas. Con más de 15 años de experiencia, nuestro equipo de veterinarios altamente calificados y personal comprometido está aquí para asegurar la salud y felicidad de tus compañeros peludos.</p>
+            </div>
+        </section>
+
+        <section id="veterinarios" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Veterinarios</h2>
+                <div class="grid">
+                    <div class="vet-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dra. María López">
+                        <h3>Dra. María Sanchez </h3>
+                        <p>Especialista en medicina interna y cirugía de pequeños animales</p>
+                    </div>
+                    <div class="vet-card">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dr. Carlos Rodríguez">
+                        <h3>Dr. Luis González </h3>
+                        <p>Experto en Dermatología </p>
+                    </div>
+                    <div class="vet-card">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dra. Ana Martínez">
+                        <h3>Dr. Ana Pérez </h3>
+                        <p>Especializada en Nutricion </p>
+                    </div>
+                    <div class="vet-card">
+                        <img src="static/img/veterinario.jpg"alt="Dra. Carlos Ramírez">
+                        <h3>Dra. Carlos Ramírez </h3>
+                        <p>Especializado en oncología y cuidados paliativos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="grid">
+                    <div class="service-card">
+                        <h3>Consultas Generales</h3>
+                        <p>Exámenes de rutina, vacunaciones y chequeos generales para mantener a tu mascota saludable.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Cirugía</h3>
+                        <p>Procedimientos quirúrgicos avanzados realizados por nuestros expertos veterinarios.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Laboratorio</h3>
+                        <p>Análisis de sangre, orina y otros exámenes para un diagnóstico preciso y rápido.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Hospitalización</h3>
+                        <p>Cuidados intensivos y monitoreo las 24 horas para mascotas que requieren atención especial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="adopciones" class="section">
+            <div class="container">
+                <h2 class="section-title">Adopciones</h2>
+                <p>En Patitas Felices, creemos en dar una segunda oportunidad a las mascotas sin hogar. Conoce a algunos de nuestros amigos que buscan un hogar amoroso:</p>
+                <div class="grid">
+                    <div class="adoption-card">
+                        <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Luna">
+                        <h3>Luna</h3>
+                        <p>Adorable gatita de 2 años, cariñosa y juguetona.</p>
+                        <a href="#contacto" class="btn">Adoptar</a>
+                    </div>
+                    <div class="adoption-card">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Max">
+                        <h3>Max</h3>
+                        <p>Perro mestizo de 3 años, amigable y lleno de energía.</p>
+                        <a href="#contacto" class="btn">Adoptar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <p>¿Tienes alguna pregunta o quieres agendar una cita? No dudes en contactarnos:</p>
+                <p>📞 Teléfono: (+505) 7785-7890</p>
+                <p>✉️ Email: info@patitasfelices.com</p>
+                <p>🏠 Dirección: Bello horizonte, Managua</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Clínica Veterinaria Patitas Felices. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    {% block extra_js %}
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

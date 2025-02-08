@@ -1,0 +1,70 @@
+{% extends "main.html" %}
+
+{% block title %}Patitas Felices - Compras{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/compras.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <header>
+        <h1>Farmacia y Artículos</h1>
+    </header>
+    <main>
+        {% for categoria in categorias %}
+        <div class="row">
+            <h2 class="section-title">{{ categoria.nombre }}</h2>
+            {% for item in productos %}
+            {% if item.categoria_id == categoria.id_categoria %}
+            <div class="product-card col-md-4 col-lg-5 col-sm-auto" style="margin-bottom:1.5rem !important;">
+                <img src="{{ item.imagen_path }}" alt="Imagen del producto" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">{{ item.nombre }}</h3>
+                    <p class="product-description">{{ item.descripcion }}</p>
+                    <p class="product-price">${{ item.preciounitario }}</p>
+                    <!-- Formulario para añadir al carrito -->
+                    <form action="{{ url_for('guardar_producto_carrito') }}" name="form-productos" method="POST">
+                        <input type="hidden" name="producto_id" value="{{ item.id_producto }}">
+                        <label for="cantidad_{{ item.id_producto }}">Cantidad:</label>
+                        <input type="number" id="cantidad_{{ item.id_producto }}" name="cantidad" min="1"
+                            max="{{ item.stock }}" required>
+                        <button type="submit" class="add-to-cart">Añadir al Carrito</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </main>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="{{ url_for('static', filename='scripts/compras.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/carrito.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        //Selecciona todos los formularios que encuentre en la pagina
+        const formularios = document.getElementsByName("form-productos");
+        // Agrega un event listener a cada formulario, para que cuando el usuario haga click en
+        // añadir al carrito,se agregue a la tabla carrito
+        formularios.forEach(formulario => {
+            formulario.addEventListener("submit", event => {
+                event.preventDefault();
+
+                const formData = new FormData(formulario);
+                const productoId = formData.get('producto_id');
+                const cantidad = formData.get('cantidad');
+
+                console.log("ID del producto: " + productoId + " Cantidad:" + cantidad);
+                guardar_producto(productoId, cantidad);
+
+            })
+
+        })
+    })
+</script>
+{% endblock %}

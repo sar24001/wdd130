@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar.css') }}">
+    {% endblock %}
+    <title>Editar Servicio</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form class="form" action="{{ url_for('editar', id_servicio=id_servicio) }}" method="POST">
+                <h1>Editar Servicio</h1>
+                <input value="{{ descripcion }}" type="text" name="descripcion" placeholder="Descripción" required />
+                <input value="{{ costo }}" type="text" name="costo" placeholder="Costo" required />
+                <input value="{{ duracion }}" type="text" name="duracion" placeholder="Duración" required />
+                <button type="submit">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+{% endblock %}
+
+</html>
+

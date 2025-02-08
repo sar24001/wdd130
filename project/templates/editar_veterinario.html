@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block extra_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/editar.css') }}">
+        {% endblock %}
+        <title>Editar Veterinarios</title>
+    </head>
+
+    <body>
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <!-- Formulario para agregar/editar -->
+                <form action="{{ url_for('editar_veterinario', id_veterinario = id_veterinario) }}" method="POST" class="mt-4">
+                {% for item in veterinario %}
+                    <input type="hidden" id="id" name="id" value="{{ veterinario.id if veterinario else '' }}">
+                    <div class="mb-3">
+                        <label for="nombre1" class="form-label">Primer Nombre</label>
+                        <input type="text" id="nombre1" name="nombre1" value="{{item.nombre1}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre2" class="form-label">Segundo Nombre</label>
+                        <input type="text" id="nombre2" name="nombre2" value="{{item.nombre2}}" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido1" class="form-label">Primer Apellido</label>
+                        <input type="text" id="apellido1" name="apellido1" value="{{item.apellido1}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido2" class="form-label">Segundo Apellido</label>
+                        <input type="text" id="apellido2" name="apellido2" value="{{item.apellido2}}" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cedula" class="form-label">Cédula</label>
+                        <input type="text" id="cedula" name="cedula" value="{{item.cedula}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono" value="{{item.telefono}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="especialidad" class="form-label">Especialidad</label>
+                        <input type="text" id="especialidad" name="especialidad" value="{{item.especialidad}}" class="form-control" required>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </form>
+            </div>
+
+        </div>
+        </div>
+    </body>
+
+    {% block extra_js %}
+    <script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+    {% endblock %}
+
+</html>

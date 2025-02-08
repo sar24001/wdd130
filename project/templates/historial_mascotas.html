@@ -1,0 +1,34 @@
+{% extends "administrador.html" %}
+{% block title %}Patitas felices - Historial de mascotas{% endblock %}
+{% block seccion %}Historial de mascotas{% endblock %}
+{% block content %}
+
+
+<div class="container mt-4">
+  <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre de la Mascota</th>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Estado(activo/inactivo)</th>
+                    <th scope="col">Accion</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                {% for item in mascotas %}
+                  <tr>
+                    <td>{{ item.nombre }} </td>
+                    <td>{{ item.especie_nombre }}</td>
+                    <td>{{ item.razanombre }}</td>
+                    <td>{{ item.edad }} </td>
+                    <td>{{ item.estado }}</td>
+                    <td>{{ item.estado }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+
+              {% endblock %}

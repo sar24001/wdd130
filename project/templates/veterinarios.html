@@ -1,0 +1,57 @@
+{% extends "administrador.html" %}
+
+{% block title %}Veterinarios{% endblock %}
+
+{% block seccion %}Nuestros Veterinarios{% endblock %}
+
+{% block content %}
+
+<!-- Tabla de veterinarios -->
+<div class="container mt-4">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+                <th>Teléfono</th>
+                <th>Cédula</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for veterinario in veterinarios %}
+            <tr>
+                <td>{{ veterinario.nombre }}</td>
+                <td>{{ veterinario.especialidad }}</td>
+                <td>{{ veterinario.telefono }}</td>
+                <td>{{ veterinario.cedula }}</td>
+                <td>{{ veterinario.estado }}</td>
+                {% if session.id_rol == 1 %}
+                <td>
+                    <!-- Botón para editar -->
+                    <a href="{{ url_for('editar_veterinario', id_veterinario=veterinario.id_veterinario) }}"
+                       class="btn btn-primary btn-sm">Editar</a>
+
+                    <!-- Formulario para cambiar estado -->
+                    <form method="POST"
+                          action="{{ url_for('cambiar_estado_veterinario', id_veterinario=veterinario.id_veterinario) }}"
+                          style="display:inline;">
+                        <button type="submit" class="btn btn-sm {{ 'btn-danger' if veterinario.estado == 'activo' else 'btn-success' }}">
+                            {{ 'Desactivar' if veterinario.estado == 'activo' else 'Activar' }}
+                        </button>
+                    </form>
+                </td>
+                {% else %}
+                <td>No puedes editar</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+
+
